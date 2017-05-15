@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js比较</title>
+</head>
+<body>
+<!--js比较和逻辑运算符：比较和逻辑运算符用于测试true和false-->
+
+<script type="text/javascript">
+/*
+比较运算符：在逻辑语句中使用，以测定变量和值是否相等；
+== 等于（值的等于）
+=== 绝对等于（值和类型均等于）
+!= 不等于（值不等于）
+!== 绝对不等于（值和类型不想等）
+> 大于
+< 小于
+>= 大与或等于
+<= 小于或等于
+*/
+	x = 5;
+
+	//值相同
+	if (x ==5) {
+		document.write("<p>x==5</p>");
+	}else{
+		document.write("<p>x!==5</p>");
+	}
+	//值和类型都相等
+	if (x === "5") {
+		document.write('<p>x==="5"</p>');
+	}else{
+		document.write('<p>x!==="5"</p>');
+	}
+	//大于或小于
+	if (x > 4) {
+		document.write("<p>x>5</p>");
+	}else{
+		document.write("<p>x<5</p>");
+	}
+	//大于等于或小于等于
+	if (x >= 5) {
+		document.write("<p>x>=5</p>");
+	}else{
+		document.write("<p>x<=5</p>");
+	}
+
+
+/*
+逻辑运算符：用于测定变量或值之间的逻辑
+&& and
+|| or
+! not
+*/
+	y = 10;
+
+	//逻辑与
+	if (y < 15 && y >= 5) {
+		document.write("<p>y < 15 && y >= 5</p>")
+	}
+	//逻辑或
+	if (y === '10' || y >= 10 ) {
+		document.write("<p>y === '10' || y >= 10</p>");
+	}
+	//逻辑非
+	if (!y < 5) {
+		document.write("<p>!y < 5</p>");
+	}
+
+
+/*
+条件运算符：包含了某些条件对变量进行赋值,类似oc中三目表达式
+*/
+var z = (y === "10")? 5:10;
+document.write(z);
+
+</script>
+
+
+</body>
+</html>

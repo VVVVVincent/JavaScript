@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js1</title>
+
+	<!-- js代码 -->
+	<script>
+	    <!-- function 方法名（参数） -->
+		function displayDate() {
+			// 方法体body...
+			document.getElementById("demo").innerHTML=Date();
+		}
+	</script>
+
+</head>
+
+<body>
+<!-- 
+html处理UI
+h1->表示最大字体，h6最小
+p->段落标签
+ -->
+<h1>我的第一个js程序</h1>
+<p id="demo"> 这是一个段落</p>
+<button type="button" onclick="displayDate()">显示日期</button>
+</body>
+</html>

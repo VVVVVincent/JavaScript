@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js运算符</title>
+</head>
+
+<body>
+<!--**********js运算符***********-->
+<!--
+运算符＝用于赋值，用于给js变量赋值
+运算符＋用于加值，用于把值加起来
+-->
+<p id="demo1">测试数据1</p>
+<p id="demo2">测试数据2</p>
+<p id="demo3">测试数据3</p>
+<script type="text/javascript">
+	function myFun1() {
+		x = 5;
+		y = 2;
+		z = x + y;
+		document.getElementById("demo1").innerHTML = z;
+	}
+
+	/*
+	js算术运算符：
+	+加、-减、*乘、/除、％取模(余数)、++自增、--自减
+	*/
+
+
+	/*
+	js赋值运算符：
+	=、+=、-=、*=、/=、%=
+	*/
+	function myFun2() {
+		x = 5;
+		y = 10;
+		var v1 = x;
+		//一下运算符必须是已经声明有值的变量才能使用
+		x += y;
+		x -= y;
+		x *= y;
+		x /= y;
+		x %= y;
+	}
+
+	/*
+	用于字符串连接的＋运算符:
+	如果想要把两个或者多个字符串变量连接起来，请使用＋运算符
+	*/
+	function  myFun3() {
+		text1 = "zhy ";
+		text2 = "love"
+		text3 = "lhj.";
+		var text4 = text1 + text2 + " " + text3;
+		document.getElementById("demo2").innerHTML = text4;
+	}
+
+	/*
+	对字符串和数字进行加法运算：
+	两个数字相加，返回数字相加的和，如果数字与字符串相加，结果将成为字符串
+	*/
+	function myFun4() {
+		x = 5 + 5;
+		y = "5" + 5;
+		z = "hello" + 5;
+		document.getElementById("demo3").innerHTML = x + "<br>" + y + "<br>" + z;
+	}
+</script>
+<button type="button" onclick="myFun1()">点击查看计算结果</button><br>
+<button type="button" onclick="myFun3()">点击查看字符串拼接结果</button><br>
+<button type="button" onclick="myFun4()">点击查看字符串和数字计算</button>
+
+
+
+
+
+
+</body>
+</html>

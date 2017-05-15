@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js类型转换</title>
+</head>
+<body>
+<!--
+Number()转换为数字
+String()转换为字符串
+Boolean()转换为布尔值
+-->
+
+<!--
+js有5种不同的数据类型：string,number,boolean,object,function
+3种不同的对象类型:Object,Date,Array
+2种不包含任何值的数据类型：null,undefined
+可以使用typeof操作符来查看js变量的数据类型，但是如果对象时Array或Date，就无法得到它的数据类型，因为返回是object
+-->
+<h1>constructor属性返回变量或对象的构造函数</h1>
+<p id="demo1"></p>
+<script type="text/javascript">
+	document.getElementById("demo1").innerHTML = 
+		"john".constructor + "<br>" +
+		(3.14).constructor + "<br>" +
+		false.constructor + "<br>" +
+		[1,2,3,4].constructor + "<br>" +
+		{name:'lhj',age:23} + "<br>" +
+		new Date().constructor + "<br>" +
+		function(){}.constructor;
+		/*
+		运行结果如下：
+		function String() { [native code] }
+		function Number() { [native code] }
+		function Boolean() { [native code] }
+		function Array() { [native code] }
+		[object Object]
+		function Date() { [native code] }
+		function Function() { [native code] }
+		*/
+</script>
+
+
+<h1>可以使用constructor属性查看对象是否为日期</h1>
+<p id="demo2"></p>
+<script type="text/javascript">
+    var myDate = new Date();//创建变量
+    document.getElementById("demo2").innerHTML = isdate(myDate);//调用函数
+	function isdate(myDate){
+		return myDate.constructor.toString().indexOf("Date") > -1;
+	}
+	/*
+	运行结果：true
+	*/
+</script>
+
+
+<h1>js变量可以转换为新变量或者其它数据形式</h1>
+<!--有两种转换方式：1.通过js函数   2.通过js自身自动转换-->
+<p>1.String()方法将数字转换为表达式</p>
+<p id="demo3"></p>
+<script type="text/javascript">
+	//将数字转换为字符串－全局方法String()可以将数字转换为字符串，该方法适用于任何类型的数字，字母，变量，表达式
+	var x = 123;
+	document.getElementById("demo3").innerHTML = 
+	String(x) + "<br>" +
+	String(123) + "<br>" +
+	String(100 + 23);
+</script>
+
+<p>2.Number方法toString()方法一样的效果</p>
+<p id="demo4"></p>
+<script type="text/javascript">
+	var x = 123;
+	document.getElementById("demo4").innerHTML = 
+	x.toString() + "<br>" + 
+	(123).toString() + "<br>" + 
+	(100 + 23).toString();
+</script>
+
+<p>3.将布尔值转换为字符串</p>
+<p id="demo5"></p>
+<script type="text/javascript">
+	//全局方法String()可以将布尔值转换为字符串
+	var x = false;
+	document.getElementById("demo5").innerHTML = String(x);
+	// document.getElementById("demo5").innerHTML = x.toString();//同
+</script>
+
+
+<p>3.将日期转换为字符串</p>
+<p id="demo6"></p>
+<script type="text/javascript">
+	//全局方法String()可以将日期转换为字符串
+	var myDate = new Date();
+	// document.getElementById("demo6").innerHTML = String(myDate);
+	document.getElementById("demo6").innerHTML = myDate.toString();
+</script>
+
+<h1>将字符串转换为数字</h1>
+<p id="demo7"></p>
+<script type="text/javascript">
+	document.getElementById("demo7").innerHTML = Number("12.3");
+</script>
+
+<h1>一元运算符＋</h1>
+<p>Operator+可用于将变量转换为数字</p>
+<p id="demo8"></p>
+<button onclick="MyFun1()">点我</button>
+<script type="text/javascript">
+	function MyFun1() {
+		// body...
+		var y = "5";//y是一个字符串
+		var x = + y;//x是一个数字
+		document.getElementById("demo8").innerHTML = typeof y + "\n" + typeof x;
+	}
+</script>
+
+<h1>将布尔值转换为数字</h1>
+<p id="demo9"></p>
+<script type="text/javascript">
+	//全局方法Number()可将布尔值转换为数字
+	document.getElementById("demo9").innerHTML = Number(false);//返回0
+	// document.getElementById("demo9").innerHTML = Number(true);//返回1
+</script>
+
+<h1>将日期转换为数字</h1>
+<p id="demo10"></p>
+<script type="text/javascript">
+	//全局方法Number()可将日期转换为数字
+	var d = new Date();
+	// document.getElementById("demo10").innerHTML = Number(d);
+
+	//日期方法getTime()也有相同的效果
+	document.getElementById("demo10").innerHTML = d.getTime();
+</script>
+
+<h1>自动转换类型</h1>
+<p id="demo11"></p>
+<script type="text/javascript">
+	//当js尝试操作一个“错误”的数据类型时，会自动转换为“正确”的数据类型
+
+	document.getElementById("demo11").innerHTML = 5 + null;//返回5，null转换为0
+	document.getElementById("demo11").innerHTML = "5" + null;//返回“5null”，null转换为"null"
+	document.getElementById("demo11").innerHTML = "5" + 1//返回“51”，1转换为“1”
+	document.getElementById("demo11").innerHTML = "5" - 1//返回4，“5”转换为5
+</script>
+
+
+<h1>自动转换为字符串</h1>
+<p id="demo12"></p>
+<script type="text/javascript">
+	//当你尝试输出一个对象或者一个变量时，JS会自动调用变量的toString()方法
+	// var myChar = {name:"lhj"};//返回[object Object]
+	// var myChar = [1,2,3,4];//返回1,2,3,4
+	var myChar = new Date();//返回Mon May 15 2017 11:27:20 GMT+0800 (CST)
+	document.getElementById("demo12").innerHTML = myChar;
+
+	//数字和布尔值也经常这样转换
+</script>
+
+
+
+</body>
+</html>

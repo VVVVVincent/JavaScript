@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js for循环</title>
+</head>
+<body>
+<p id="demo1">测试数据1</p>
+<button type="button" onclick="myFun1()">点击查看循环次数</button><br>
+
+
+<p id="demo2">测试数据2</p>
+<button type="button" onclick="myFun2()">点击查这里</button><br>
+<script type="text/javascript">
+	/*
+	循环可以将代码块执行指定的次数
+	*/
+	var cars = ["BMW","Volvo","Saab","Ford"];
+	// for (var i = 0; i < cars.length; i++) {
+	// 	document.write(cars[i] + "<br>");
+	// }
+
+	// for (var i = cars.length - 1; i >= 0; i--) {
+	// 	document.write(cars[i] + "<br>");
+	// }
+
+	// for (var i = 0; i < cars.length; ) {
+	// 	document.write(cars[i] + "<br>");
+	// 	i++;
+	// }
+
+	var i = 2, len = cars.length;
+	for (; i < len; i++) {
+		document.write(cars[i] + "<br>");
+	}
+
+
+
+	function myFun1() {
+		var x = "";
+		for (var i = 0; i < 5; i++) {
+			x = x + "该数字为 "+ i + "<br>";
+		}	
+		document.getElementById('demo1').innerHTML = x;
+	}
+
+	function myFun2() {
+		//for..in循环
+	var x;
+	var txt = "";
+	var person = {
+		name:"lhj",
+		age:23,
+		sex:"女"
+		};
+
+	for (x in person) {
+		txt = txt + person[x] + " ";
+	}
+	document.getElementById("demo2").innerHTML = txt;
+	}
+
+</script>
+
+</body>
+</html>

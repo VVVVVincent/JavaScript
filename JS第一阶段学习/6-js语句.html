@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js语句</title>
+</head>
+<body>
+<!--*******js语句******-->
+<h1>js语句</h1>
+<p id="demo1">测试数据1</p>
+<script type="text/javascript">
+	function myFun1() {
+		document.getElementById('demo1').innerHTML = "Hello World";
+	}
+</script>
+<button type="button" onclick="myFun1()">点击这里改变字</button>
+
+<!--********分号；********-->
+<!--
+分号用于分隔js语句；
+通常我们可以在每条可执行的语句末尾添加分号；
+使用分号的另一用处是在一行中编写多行语句
+-->
+<script type="text/javascript">
+	a = 5;
+	b = 6; c = a + b;
+</script>
+
+<!--********js代码*********-->
+<!--js代码是js语句的序列；浏览器按照编写顺序依次执行每条语句-->
+<h1>js代码</h1>
+<p id="demo2">测试数据2</p>
+<div id="demo3">测试数据3</div>
+<script type="text/javascript">
+	document.getElementById("demo2").innerHTML = "你好，john";
+	document.getElementById("demo3").innerHTML = "你最近怎么样？"
+</script>
+
+<!--*********js代码块**********-->
+<!--
+js可以分批的组合起来；
+代码块以左花括号开始，以右花括号结束；
+代码块的作用是一并执行语句序列；
+-->
+<h1>js代码块</h1>
+<p id="par">我是一个段落</p>
+<div id="div">我是一个div</div>
+<script type="text/javascript">
+	function myFun2() {
+		document.getElementById("par").innerHTML = "你好世界";
+		document.getElementById("div").innerHTML = "你还好吗";
+	}
+</script>
+<button type="button" onclick="myFun2()">点击按钮可改变两个文字</button>
+
+<!--*******空格********-->
+<!--js会忽略多余的空格，可以向脚本添加空格，来提高其可读性-->
+<script type="text/javascript">
+//下面两段代码效果相等
+	var person = "hello";
+	var person =  "hello";
+</script>
+
+<!--********对代码进行折行********-->
+<!--可以在文本字符串中使用反斜杠对代码进行换行-->
+<script type="text/javascript">
+	document.write("你好 \ 
+		世界");
+</script>
+
+
+</body>
+</html>

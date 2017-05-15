@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js函数</title>
+</head>
+<body>
+
+<!--*********js函数********-->
+<script type="text/javascript">
+	function myFun1() {
+		alert("hello word");
+	}
+</script>
+<button type="button" onclick="myFun1()">点击这里弹出欢迎语</button>
+<br><br>
+
+<p id="demo2">计算结果</p>
+<p id="demo3">计算结果2</p>
+<script type="text/javascript">
+	/*
+	js函数语法：
+	函数就是包裹在花括号中的代码块，前面使用了关键字function;
+	function关键字必须小写，并且调用该函数时必须以函数名称大小写一致来调用函数
+	*/
+
+	/*
+	调用带参数的函数：
+	在调用函数时，可以向其传递参数，这些参数可以在函数中使用；
+	可以发送任意多的参数，由，分隔，但是只会使用跟声明时数量相同的变量；
+	当声明函数时，把参数做为变量来声明；
+	变量和形参必须以一致的顺序出现；
+	*/
+	function myFun2(name,job) {
+		alert("welcome" + name + ", the " + job);
+	}
+
+	/*
+	带有返回值的函数：
+	通过return语句实现；
+	在使用return语句时，函数会停止执行，并返回指定的值
+	*/
+	function myFun3() {
+		var x = 5;
+		return x;
+	}
+	function myFun4() {
+		var y = myFun3();
+	    document.getElementById('demo1').innerHTML = y;
+	}
+	function myFun5(a,b) {
+		return a * b;
+	}
+	document.getElementById("demo2").innerHTML = myFun5(3,5);
+	function myFun6(a,b) {
+		if (a < b) {
+			return;
+		}
+		x = a + b;
+		document.getElementById("demo3").innerHTML = x;
+	}
+
+	/*
+	局部js变量：
+	在js函数内部的变量（使用var）是局部变量，只能在函数内部访问它；
+	可以在不同的函数中使用名称相同的局部变量；
+	只要函数运行完毕，本地变量就会被删除
+	*/
+
+	/*
+	全局js变量：
+	在函数外声明的变量是全局变量，作用域是全局的，网页上所有的脚本和函数都能访问它。
+	*/
+
+	/*
+	js变量声明周期：
+	js变量的声明期从它们被声明的时间开始；
+	局部变量在函数运行以后被删除；
+	全局变量在页面关闭之后被删除。
+	*/
+
+	/*
+	向未声明的js变量分配值：
+	如果要把值给尚未声明的变量，该变量将被自动做为全局变量声明
+	*/
+	//如下，直接给一个未声明的变量赋值
+	carName = "BMW";
+
+</script>
+<button type="button" onclick="myFun2('lhj','softer')">Try it</button>
+<br><br>
+<button type="button" onclick="myFun2('zhy','softer','23')">点击这里</button>
+<br><br>
+<p id="demo1">这是一个段落测试数据</p>
+<button type="button" onclick="myFun4()">点击调用函数查看结果</button>
+<br><br>
+<button type="button" onclick="myFun6(2,6)">点击查看结果</button>
+
+
+
+
+
+</body>
+</html>

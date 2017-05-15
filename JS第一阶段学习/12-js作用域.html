@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js作用域</title>
+</head>
+<body>
+
+<p id="demo"></p>
+<p id="demo1">测试数据1</p>
+<p id="demo2">测试数据2</p>
+<p id="demo3">测试数据3</p>
+<script type="text/javascript">
+	/*
+	js作用域：
+	在js中，对象和函数同样也是变量；
+	在js中，作用域是可访问的变量、对象、函数的集合；
+	js函数作用域：作用域在函数内修改
+	*/
+
+	/*
+	js局部作用域：
+	若变量在函数内声明，变量味局部作用域；
+	局部变量：只能在函数内部访问。
+	*/
+	//在函数外无法访问该局部变量及值
+	myFun1();
+	document.getElementById("demo").innerHTML = "我显示" + typeof x;
+	function myFun1() {
+		var x = "lhj";
+		//只能在此函数内调用或使用name变量
+		document.getElementById("demo1").innerHTML = x;
+	}
+
+	/*
+	js全局变量：
+	变量在函数外定义，即为全局变量；
+	全局变量有全局作用域，网页中所有脚本和函数都可访问和使用
+	*/
+	//访问全局变量myLove ,必须提前声明该函数变量
+	myFun2();
+	document.getElementById("demo2").innerHTML = myLove;
+	var carName = "BMW";
+	function myFun2() {
+		//特别注意⚠️：如果在函数中直接给一个未声明的变量赋值，则该变量则为全局变量
+		myLove = "zhy";
+		document.getElementById("demo").innerHTML = "我可以显示" + carName;
+	}
+
+
+	/*
+	js变量声明周期：
+	js变量声明周期在它声明时初始化；局部变量在函数执行完毕后销毁；全局变量在页面关闭后销毁。
+	*/
+
+	/*
+	函数参数：
+	函数参数只在函数内起作用，是局部变量
+	*/
+
+	/*
+	HTML全局变量：
+	在html中，全局变量是window变量，所有数据变量都属于window变量
+	*/
+	myFun3();
+    document.getElementById("demo3").innerHTML = "我可以显示" + window.age;
+	function myFun3() {
+		age = 23; 
+	}
+
+
+</script>
+<button type="button" onclick="myFun1()">点击这里1</button><br><br>
+<button type="button" onclick="myFun2()">点击这里2</button><br><br>
+
+</body>
+</html>

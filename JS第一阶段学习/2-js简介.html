@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js简介</title>
+</head>
+
+<body>
+<h1>js能够直接写入html输出流中：</h1>
+<script>
+	document.write("<h3>这是一个标题</h3>");
+	document.write("<p>这是一个段落</p>");
+</script>
+<p>
+	只能在html输出流中使用<strong>document.write</strong>。
+	如果在文档加载后使用它（比如在函数后），会覆盖整个文档。
+</p>
+
+<h1>js能够对事件做出反应，比如按钮的点击：</h1>
+<button type="submit" onclick="alert('欢迎！')">点我</button>
+
+<h1 id="demo">js能改变html元素的内容</h1>
+<script>
+	function MyFun() {
+		// body...
+		x=document.getElementById('demo');//找到元素
+		x.innerHTML="hello js!";//改变内容
+	}
+</script>
+<button type="button" onclick="MyFun()">点击这里</button>
+
+<h1>改变html图片</h1>
+<script>
+	function changeImg() {
+		// body...
+		element=document.getElementById('myImg');
+		if (element.src.match("on")) 
+		//element.src.match该方法用于检索匹配图片链接中是否含有某个字段
+		{
+			element.src="./images/off.jpg";
+		}else
+		{
+			element.src="./images/on.jpg";
+		}
+	}
+</script>
+<img id="myImg" onclick="changeImg()" src="./images/on.jpg" width="160" height="180">
+<p>点击灯泡可以打开或关闭这盏灯</p>
+
+<h1>改变html样式</h1>
+<p id="demo1">可以改变字体颜色</p>
+<script>
+	function changeFontColor() {
+		// body...
+		x=document.getElementById('demo1');//找到元素
+		x.style.color="#ff0000";//改变元素
+	}
+</script>
+<button type="button" onclick="changeFontColor()">点击这里改颜色</button>
+
+<h1>验证输入</h1>
+<p>请输入数字。如果输入值不是数字，浏览器会弹出提示</p>
+<input type="text" id="demo2">
+<script>
+	function MyFun2() {
+		// body...
+		var x=document.getElementById("demo2").value;
+		if (x==""||isNaN(x)) 
+		{
+			alert("不是数字");
+		}
+	}
+</script>
+<button type="button" onclick="MyFun2()">点击这里</button>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js对象</title>
+</head>
+<body>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<script type="text/javascript">
+	/*
+	对象也是一个变量，但变量可以包含多个值（多个变量);
+	定义js对象可以跨越多行，空格和换行不是必须的；
+	键值对再js对象中通常被称为对象属性；
+	*/
+	var car = {
+		//3个值（"BMW",500,"red"）赋给变量car
+		//3个变量（name,model,color）赋给变量car
+		name : "BMW",
+		model : 500,
+		color: "red",
+		/*
+		对象方法
+		对象方法定义了一个函数，并作为对象的属性存储；
+		对象方法通过添加()调用（）作为一个函数
+		*/
+		//创建对象方法
+		carDescription : function () 
+		{
+			return this.name + " " + this.model;
+		}
+
+
+	};
+	//如果要访问对象方法
+	document.getElementById("demo1").innerHTML = car.carDescription();
+
+	//如果要访问对象中的做为对象方法的那个属性,可通过以下方法，它将作为一个定义函数的字符串返回
+	document.getElementById("demo2").innerHTML = car.carDescription;
+</script>
+
+<!--**********创建对象练习********-->
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<script type="text/javascript">
+	//创建对象1
+	var person1 = {firtName:"郑", lastName:"宏业", age:23};
+	document.getElementById("demo3").innerHTML = person1.firtName + person1.lastName + "现在" + person1.age + "岁.";
+
+	//创建对象2
+	var person2 = {
+		firtName : "李",
+		lastName : "慧娟",
+		age : 23,
+		fullName : function(){
+			return this.firtName + this.lastName;
+		}
+	};
+	document.getElementById("demo4").innerHTML = person2["firtName"] + person2["lastName"] + "现在" + person2["age"] + "岁.";
+	//函数属性做为一个方法访问
+	document.getElementById("demo5").innerHTML = person2.fullName();
+	//函数属性做为一个属性访问
+	document.getElementById("demo6").innerHTML = person2.fullName;
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js事件</title>
+</head>
+<body>
+<!--********js事件************-->
+<!--
+html事件是发剩在html元素上的事件；
+当在html页面上使用js时，js也可以触发这些事件。
+-->
+
+<!--*********html事件**********-->
+<!--
+html事件可以时浏览器行为，也可以时用户行为；
+html事件的实例：
+1.html页面完成加载
+2.html input字断改变
+3.html按钮被点击
+-->
+<p id="demo1">html事件测试</p>
+<button type="button" onclick="getElementById('demo1').innerHTML=Date()">点击查看现在时间</button>
+<br><br>
+
+<button type="button" onclick="this.innerHTML = Date()">现在时间是？</button>
+
+<!--<em>标签标示的文字斜体显示，一般用来标示专业术语或特别强调的文字-->
+<p id="demo2">测试数据</p>
+<p>点击按钮执行<em>displayDate()</em>函数</p>
+<button onclick="displayDate()">点这里</button>
+<script type="text/javascript">
+	function displayDate() {
+		document.getElementById("demo2").innerHTML = Date();
+	}
+
+	function mouseOver() {
+		alert("鼠标移动到这了");
+	}
+	function mouseOut() {
+		alert("鼠标离开这了");
+	}
+
+</script>
+<p onmouseover="mouseOver()" onmouseout="mouseOut()">鼠标移动或离开此处时弹框</p>
+
+
+<!--**********js可以用来做什么***********-->
+<!--
+事件可以用于处理表单验证，用户输入，用户行为及浏览器行为：
+1.页面加载时触发事件
+2.页面关闭时触发事件
+3.用户点击按钮执行行为
+4.验证用户输入内容的合法性等
+
+可以用多种方法执行js事件代码：
+1.html事件属性可以直接执行js代码
+2.html事件属性可以调用js函数
+3.可以为html元素指定自己的事件处理程序
+4.可以阻止事件的发生等
+-->
+
+
+</body>
+</html>

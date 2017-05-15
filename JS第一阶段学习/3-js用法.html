@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js用法</title>
+</head>
+
+<body>
+<!-- body中的js -->
+<h1>我的web页面</h1>
+<p id="demo">这是段落1</p>
+<button type="button" onclick="myFun1()">点击这里</button>
+   <script>
+		function myFun1() {
+			// body...
+			document.getElementById('demo').innerHTML="我的第一个js函数";
+		}
+	</script>
+	
+<!-- 引用外部的js文件 外部脚本文件中不包含script标签 -->
+<script src="myScript.js"></script>
+<p id="text">这是段落2</p>
+<button type="button" onclick="myFunction()">点击这里！</button>
+</body>
+</html>

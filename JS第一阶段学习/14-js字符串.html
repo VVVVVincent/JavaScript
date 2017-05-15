@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js字符串</title>
+</head>
+<body>
+
+<p id="demo1">测试数据1</p>
+<p id="demo2">测试数据2</p>
+<script type="text/javascript">
+	/*
+	js字符串：
+	js字符串用于存储和处理文本；
+	字符串可以存储一系列字符；
+	字符串可以是插入引号中的任何字符，可以是单引号或者双引号；
+	可以使用索引位置来访问字符串中的每个字符，字符串的索引从0开始；
+	可以在字符串中使用引号，字符串中的引号不要与字符串的引号相同；
+	可以在字符串添加转义字符来使用引号,\+引号
+	*/
+	var str1 = "lhj";
+	var str2 = 'zhy';
+
+	var carArr = ['BMW',"Volvo","Benci"];
+	var carName = carArr[2];
+	// document.getElementById('demo1').innerHTML = carName;
+
+	var str3 = "lhj 'love' zhy";
+	// document.getElementById('demo1').innerHTML = str3;
+	var str4 = 'zhy "love" lhj';
+	// document.getElementById('demo1').innerHTML = str4;
+
+	// \'单引号  \"双引号 \n换行  \\反斜杠
+	var str5 = 'it\'s alright';
+	var str6 = "he is \"zhy\"";
+	document.getElementById('demo1').innerHTML = str5 + "\n" + str6;
+
+	/*
+	字符串长度：
+	可以使用内置属性length来计算字符串的长度
+	*/
+	var str7 = "asdjkfjckkdcsdnvksdfnvkdfskvf";
+	document.write("<p>" + "字符串的长度为：" + str7.length + "</p>");
+
+	/*
+	特殊字符：
+	在js中，字符串中的引号不能与字符串的引号相同，想要相同的话，就要使用转义字符
+	*/
+	var str8 = "\"lhj\" love \"zhy\"";
+	document.getElementById("demo2").innerHTML = str8;
+
+	/*
+	字符串可以是对象：
+	通常，js对象是原始值，可以使用var str1 = "lhj" 创建
+	但也可以使用new关键字将字符串定义成一个对象：var str1 = new String("lhj")
+	typeof 变量名 表示输出该变量的类型 
+	注意⚠️：最好不要创建String对象，会拖慢运行速度，并可能产生其他副作用
+	*/
+	var x = "John";//这是一个字符串
+	var y = new String("Bob");//这是一个对象
+	document.write("<p>" + typeof x + "</p>");
+	document.write("<p>" + typeof y + "</p>");
+
+	var name1 = "lhj";
+	var name2 = new String("lhj");
+
+	if (name1 === name2) {
+		//===为绝对相等，即数据类型和值都必须相等
+		document.write("<p>绝对相等</p>");
+	}else{
+		document.write("<p>不相等</p>");
+	}
+
+	/*
+	字符串属性和方法：
+	原始字符串，如"john"没有属性和方法，因为它们不是对象；
+	原始值可以使用js的属性和方法，因为js在执行方法和属性时可以把原始值当作对象；
+
+	字符串的属性有：
+	1.constructor返回创建字符串属性的函数
+	2.length返回字符串的长度
+	3.prototype允许向对象添加属性和方法
+	*/
+</script>
+</body>
+</html>

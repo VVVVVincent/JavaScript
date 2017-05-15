@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js输出</title>
+</head>
+<body>
+
+<!-- 使用window.alert()弹出警示框显示数据 -->
+	<h1>使用“window.alert(警告内容)”弹出警示框显示数据</h1>
+	<script>
+		function myFun() {
+			window.alert(5 + 6);
+
+		}
+	</script>
+	<button type="button" onclick="myFun()">点击这里弹出警示框！</button>
+
+<!-- 使用innerHTML方法操作html元素 -->
+	<h1>操作html元素</h1>
+	<p id="demo1">只是一个text</p>
+	<script type="text/javascript">
+		function myFun1() {
+			document.getElementById('demo1').innerHTML="改变后的效果";
+			// x=document.getElementById("demo1");//找到元素
+			// x.innerHTML="改变后的效果";//改变内容
+		}
+	</script>
+	<button type="button" onclick="myFun1()">点击这里改变文字内容</button>
+
+<!-- 
+使用document.write()写到html文档；
+这仅仅向文档输出写内容，如果在文档已完成加载后执行 document.write，整个 HTML 页面将被覆盖。 
+-->
+	<h1>写到html文档</h1>
+	<button type="button" onclick="myFun2()">点击这里显示当前时间！</button>
+	<script type="text/javascript">
+		function myFun2() {
+			document.write(Date());
+		}
+	</script>
+
+<!-- 
+写到控制台:在浏览器允许调试的情况下使用 console.log() 方法在浏览器中显示 JavaScript 值
+ -->
+	<h1>写到控制台</h1>
+	<script type="text/javascript">
+		function myFun3() {
+			a = 5;
+			b = 6;
+			c = a + b;
+			console.log(c);
+		}
+	</script>
+	<button type="button" onclick="myFun3()">点击这里在控制台显示数值</button>
+
+</body>
+</html>
