@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js调试</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+
+	/*
+	console.log()方法
+	*/
+	a = 5;
+	b = 6;
+	c = a + b;
+	console.log(c);
+
+	/*
+	设置断点：
+	在每个断点上，都会停止执行js代码，以便于检查js变量的值
+	在检查完毕后，可以重新执行代码
+	*/
+
+	/*
+	debugger关键字：
+	用于停止执行js，并调用该函数；
+	这个关键字与在调试工具中设置断点的效果是一样的；
+	如果没有调试可用，debugger语句将无法工作；
+	*/
+	var x = 15 * 5;
+	debugger;
+	document.getElementById('demo').innerHTML = x;
+
+
+</script>
+
+</body>
+</html>

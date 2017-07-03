@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js错误</title>
+</head>
+<body>
+<!--
+try 语句测试代码块的错误，try语句允许我们在执行时进行错误测试的代码块
+catch语句处理错误，当try代码块发现错误时，所执行的代码块，js中try和catch都是成对出现的
+trow语句创建自定义错误
+-->
+<h1>try语句</h1>
+<button onclick="myFun1()">查看消息</button>
+
+<h1>throw语句</h1>
+<p>请输入一个5到10之间的数字</p>
+<input id="demo1" type="text">
+<button onclick="myFun2()">测试输入</button>
+<p id="message"></p>
+
+<script type="text/javascript">
+
+    //try语句
+	var txt = "";
+	function myFun1() {
+		try{
+			addAlert("welcome")//应该是alert
+		}catch(err){
+			txt = "本页有错误。\n\n"
+			txt += "错误描述" + err.message + "\n\n";
+			txt += "点击确定继续\n\n"
+			alert(txt)
+		}
+	}
+
+	//throw语句
+	function myFun2() {
+		var message, x;
+		message = document.getElementById('message');
+		message.innerHTML = "";
+		x = document.getElementById("demo1").value;
+		try{
+			if (x == "") throw "值为空";
+			if (isNaN(x)) throw "不是数字";
+			x = Number(x);
+			if (x < 5) throw "太小";
+			if (x > 10) throw "太大";
+		}catch(err){
+			message.innerHTML = "错误" + err;
+
+		}
+	}
+
+
+</script>
+
+</body>
+</html>

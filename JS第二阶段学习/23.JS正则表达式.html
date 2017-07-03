@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>JS正则表达式</title>
+</head>
+<body>
+<!--
+正则表达式：使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式，搜索模式可用于文本搜索和文本替换
+语法：／正则表达式主体／修饰符（可选）
+-->
+
+<h1>search()方法搜索字符串“Runoob”，显示出匹配的起始位置</h1>
+<button onclick="myFun1()">点击搜索</button>
+<p id="demo1"></p>
+
+<h1>替换"Runoob"为"Microsoft"</h1>
+<button onclick="myFun2()">点击替换</button>
+<p id="demo2"></p>
+
+<h1>验证是否为邮箱地址</h1>
+<p id="demo3"></p>
+
+<script type="text/javascript">
+	/*
+	search()方法使用字符串，字符串会转换为正则表达式
+	*/
+	function myFun1() {
+		var str = "Visit Runoob";
+		var n = str.search("Runoob");
+		document.getElementById('demo1').innerHTML = n;
+	}
+
+	/*
+	replace()方法替换字符串
+	*/
+	function myFun2() {
+		var str = "Visit Runoob";
+		var txt = str.replace("Runoob","Microsoft");
+		document.getElementById("demo2").innerHTML = txt;
+	}
+
+	/*
+	test()方法检测字符串，检测字符串中是否含有某个文本，如果有就返回true，否则返回false
+	*/
+	// var pat = new RegExp("e");
+	// document.write(pat.test("The best things in life are free"));
+	document.write('<h1>验证是否含有e</h1>');
+	document.write(RegExp("e").test("The best things in life are free"));
+	
+
+	function myFun3(str) {
+		var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
+		return reg.test(str);
+	}
+	document.getElementById("demo3").innerHTML = myFun3('1194638485@qq.com');
+
+
+	/*
+	使用exec()方法检索字符串，该函数返回一个数组，其中存放匹配的结果，如果未找到匹配，则返回值为null
+	*/
+	//用document.write输出，想要换行，就要使用br标签，因为js会自动忽略\n的换行符
+	document.write('<h1>检索e</h1>');
+	document.write('<br>' + RegExp("e").exec("The best things in life are free"));
+
+</script>
+
+
+</body>
+</html>
