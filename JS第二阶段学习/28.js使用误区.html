@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js使用误区</title>
+</head>
+<body>
+
+<p id="demo1"></p>
+
+<script type="text/javascript">
+	/*
+	1.赋值运算符应用错误：
+	在js中，如果在if语句后使用赋值运算符的等号(=)会产生一个错误结果，正确的方法是使用比较运算符的两个等号(==)
+	*/
+	var x = 0;
+
+	//返回false，是我们预期的x不等于10
+	// document.getElementById('demo1').innerHTML = Boolean(x == 10);
+
+	//返回true，不是我们预期的，因为=会把x赋值成10 10为true
+	// document.getElementById("demo1").innerHTML = Boolean(x = 10);
+
+	//返回 false，不是我们预期的，因为=会把x赋值成0，0为false
+	document.getElementById("demo1").innerHTML = Boolean(x = 0);
+
+	/*
+	2.比较运算符常见错误：
+	在常规的比较中，数据类型是被忽略的;
+	在严格的比较运算中，===为恒等运算符，同时检查表达式的值与类型;
+	===经常用于switch语句，因为switch中会用===号进行判断
+	*/
+	var m = 10;
+	var n = "10";
+
+	//返回true
+	// document.getElementById("demo1").innerHTML = Boolean(x == y);
+
+	//返回false
+	document.getElementById("demo1").innerHTML = Boolean(m === n);
+
+	switch(m) {
+		case 10 : alert("hello");
+
+		//如果类型不一致，不会弹框
+		// case "10" : alert("hello");
+	}
+
+	/*
+	3.加法与连接注意事项：
+	加法是两个数字相加；
+	连接是两个字符串连接；
+	js中的加法和连接都使用＋运算符
+	*/
+	var a = 10 + "5";//结果为“105”
+	var b = 10 + 5;//结果为15
+	document.getElementById("demo1").innerHTML = b;
+
+	//使用变量相加的结果也不一样
+	var c = m + n;
+	document.getElementById("demo1").innerHTML = c;//结果为“1010”
+
+
+	/*
+	4.浮点型数据使用注意事项
+	js中的所有数据都是以64位浮点型(float)来存储；
+	所有的编程语言，包括js，对浮点型数据的精确度都很难确定
+	*/
+	var d = 0.1;
+	var e = 0.2;
+	// var f = d + e;//结果为0.30000000000000004
+	var f = (d * 10 + e * 10) / 10;//结果为0.3
+
+	document.getElementById("demo1").innerHTML = f;
+
+	/*
+	5.js字符串分行：
+	js允许我们在字符串中使用断行语句；
+	但是在字符串中直接使用回车换行是会报错的，想要字符串中断行，可以使用反斜杠
+	*/
+	// var h = 
+	// "hello world";
+
+	// var h = "hello
+	// world"//报错
+
+	var h = "Hello \
+World!";
+	document.getElementById("demo1").innerHTML = h;
+
+	/*
+	6.错误的使用分号
+	*/
+	if (x == 19) //;后边不能加分号
+	{
+
+	}
+
+	/*
+	7.Return语句使用注意事项
+	js默认在代码的最后一行自动结束；
+	在js中，分号是可选的，
+	以下两个实例加不加分号返回结果是一样的
+	*/
+	document.getElementById("demo1").innerHTML = myFun1(123);
+	document.getElementById("demo1").innerHTML = myFun2(123);
+	document.getElementById("demo1").innerHTML = myFun3(123);
+	//实例1
+	function myFun1(a) {
+		var b = 10;
+		return a * b
+		// return a * b;
+	}
+
+	//实例2
+	function myFun2(a) {
+		var 
+		b = 10;
+		return a * b;
+	}
+
+	//实例3－会返回结果undefined
+	function myFun3(a) {
+		var
+		b = 10;
+		return;//分号结束，返回undefined
+		a * b;
+	}
+
+	/*
+	8.数组中使用名字来索引：
+	许多程序语言都允许使用名字来作为数字的索引；
+	使用名字作为索引的数组称为关联数组（哈希）；
+	js不支持使用名字来索引数组，只允许用数字索引
+	*/
+	var person = ["john", "Doe", 48];
+	var x = person.length;
+	var y = person[0];
+	document.getElementById("demo1").innerHTML = y;
+
+	/*
+	在js中，对象使用名字来作为索引；
+	如果使用名字作为索引，当访问数组时，js会把数组重新定义成标准对象
+	*/
+
+	/*
+	9.定义数组元素，最后不能添加逗号；
+	定义对象元素，最后不能添加逗号；
+	*/
+	//错误
+	// var person = ["john", "Doe", 48,];
+	// var webSites = {name:"lhj", age:24, sex:"女",};
+	//正确
+	var person = ["john", "Doe", 48];
+	var webSites = {name:"lhj", age:24, sex:"女"};
+
+	/*
+	10.Undefined不是Null
+	在js中，null用于对象,undefined用于变量，属性何方法；
+	对象只有被定义才有可能成为null，否则就为undefined；
+	如果我们想测试对象是否存在，在对象还没定义是将会抛出一个错误
+	*/
+
+	/*
+	11.程序块作用域：
+	在每个代码块中js不会创建一个新的作用域；
+	一般各个代码块的作用域都是全局的
+	*/
+	for (var i = 0; i < 10; i++) {
+	}
+	document.getElementById("demo1").innerHTML = i;
+	
+</script>
+
+</body>
+</html>
